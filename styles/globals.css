@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{--bg:#F7EFE6;--accent:#2B7A78;--muted:#D8A22A;--text:#1B3350}
+html,body{height:100%} body{background:var(--bg);color:var(--text)}
+.retro-card{box-shadow:0 2px 0 #0001,0 4px 12px #0001}
+.retro-btn{border:2px solid var(--text);background:#fff;box-shadow:2px 2px 0 #0006}
+.retro-btn:active{transform:translate(1px,1px);box-shadow:1px 1px 0 #0006}
