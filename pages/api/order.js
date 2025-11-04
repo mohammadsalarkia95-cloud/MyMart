@@ -1,29 +1,16 @@
-// pages/api/order.js
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).json({ ok:false, error:'Method not allowed' })
+  if (req.method !== 'POST')
+    return res.status(405).json({ ok: false, error: 'Method not allowed' });
 
   try {
-    const order = req.body || {}
-
-    // چک حداقلی برای جلوگیری از درخواست‌های ناقص
+    const order = req.body || {};
     if (!order?.profile?.phone || !Array.isArray(order?.items) || !order.items.length) {
-      return res.status(400).json({ ok:false, error:'invalid payload' })
+      return res.status(400).json({ ok: false, error: 'invalid payload' });
     }
-
-    // فعلاً فقط لاگ—در Vercel: Logs > Function > /api/order
-    console.log('NEW ORDER ::', JSON.stringify(order, null, 2))
-
-    // TODO: مرحله بعدی—اتصال به ایمیل/تلگرام یا Supabase
-    // نمونه اتصال ایمیل (Resend):
-    //   const r = await fetch('https://api.resend.com/emails', {
-    //     method:'POST',
-    //     headers:{'Content-Type':'application/json','Authorization':`Bearer ${process.env.RESEND_API_KEY}`},
-    //     body: JSON.stringify({ from:'orders@mymart.app', to:'you@email.com', subject:`New order ${order.id}`, html:`<pre>${JSON.stringify(order, null, 2)}</pre>` })
-    //   })
-
-    return res.status(200).json({ ok:true })
+    console.log('NEW ORDER ::', JSON.stringify(order, null, 2));
+    return res.status(200).json({ ok: true });
   } catch (e) {
-    console.error('ORDER API ERROR:', e)
-    return res.status(500).json({ ok:false, error:'server error' })
+    console.error('ORDER API ERROR:', e);
+    return res.status(500).json({ ok: false, error: 'server error' });
   }
 }
