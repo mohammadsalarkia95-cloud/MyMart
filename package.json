@@ -9,12 +9,14 @@
     "export": "next build && next export",
     "test": "node ./tests/format.test.mjs"
   },
-  "dependencies": {
-    "autoprefixer": "10.4.20",
-    "next": "14.2.5",
-    "postcss": "8.4.41",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "tailwindcss": "3.4.10"
-  }
+ "dependencies": {
+  "autoprefixer": "10.4.20",
+  "framer-motion": "12.10.1",
+  "next": "14.2.5",
+  "postcss": "8.4.41",
+  "react": "18.3.1",
+  "react-dom": "18.3.1",
+  "tailwindcss": "3.4.10",
+  "@supabase/supabase-js": "2.45.4"
+ }
 }
